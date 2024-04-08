@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.furniture_rysbekov.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_saleFragment"
+            app:destination="@id/saleFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_bed_room"
+            app:destination="@id/navigation_bed_room" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_zal"
+            app:destination="@id/navigation_zal" />
+        <action
+            android:id="@+id/action_navigation_home_to_gardenFragment"
+            app:destination="@id/gardenFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_descriptionFragment"
+            app:destination="@id/descriptionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_bed_room"
+        android:name="com.example.furniture_rysbekov.ui.dashboard.BedRoomFragment"
+        android:label="Bed Room"
+        tools:layout="@layout/fragment_bed_room" />
+
+    <fragment
+        android:id="@+id/navigation_zal"
+        android:name="com.example.furniture_rysbekov.ui.notifications.ZalFragment"
+        android:label="Zal"
+        tools:layout="@layout/fragment_zal" >
+        <action
+            android:id="@+id/action_navigation_zal_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/saleFragment"
+        android:name="com.example.furniture_rysbekov.ui.sale.SaleFragment"
+        android:label="fragment_sale"
+        tools:layout="@layout/fragment_sale" >
+        <action
+            android:id="@+id/action_saleFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/gardenFragment"
+        android:name="com.example.furniture_rysbekov.ui.garden.GardenFragment"
+        android:label="fragment_garden"
+        tools:layout="@layout/fragment_garden" />
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.furniture_rysbekov.ui.description.DescriptionFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" >
+        <action
+            android:id="@+id/action_descriptionFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+</navigation>

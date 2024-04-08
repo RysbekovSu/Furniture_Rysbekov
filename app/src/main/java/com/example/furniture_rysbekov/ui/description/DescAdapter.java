@@ -15,8 +15,11 @@ import java.util.List;
 
 public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
     ItemDescCardBinding binding;
-    List<FurnitureModel> list_zal = new ArrayList<>();
-    NavController navController;
+    List<FurnitureModel> listD = new ArrayList<>();
+    public void setListD(List<FurnitureModel> listD) {
+        this.listD = listD;
+    }
+
     @NonNull
     @Override
     public DescAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,7 +29,7 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.onBind(list_zal.get(position));
+        holder.onBind(listD.get(position));
 
     }
 
@@ -36,25 +39,21 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return list_zal.size();
-    }
-    public void  set_list(List<FurnitureModel> Categoryin_list){
-        this.list_zal = list_zal;
+        return listD.size();
     }
 
 
 
     public  class ViewHolder extends  RecyclerView.ViewHolder{
-        ItemDescCardBinding itemDescCardBinding;
         public  ViewHolder(@NonNull ItemDescCardBinding itemView){
             super(itemView.getRoot());
-            binding =itemView;
         }
 
         public void onBind(FurnitureModel furnitureModel) {
             binding.nameCard.setText(furnitureModel.getTitle());
             binding.priceCard.setText(furnitureModel.getPrice());
             binding.descriptionCard.setText(furnitureModel.getDescription());
+            binding.imageCard.setImageResource(furnitureModel.getImgInt());
         }
     }
 }

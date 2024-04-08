@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
 
     CategoryAdapter adapter;
 
-    LottieAnimationView lotty_sale, lotty_reclama;
+    LottieAnimationView  lotty_reclama;
 
     NavController navController;
 
@@ -58,8 +58,8 @@ public class HomeFragment extends Fragment {
         binding.rvCatalogCategory.setAdapter(adapter);
 
         // Set animation to LottieAnimationView
-        lotty_reclama = binding.lottyReclama;
-        lotty_reclama.setAnimation(R.raw.f1);
+        lotty_reclama = binding.lottySale;
+        lotty_reclama.setAnimation(R.raw.fur2);
 
         // Set click listener to saleCardView
         binding.saleCardView.setOnClickListener(v -> {
@@ -71,12 +71,11 @@ public class HomeFragment extends Fragment {
     }
 
     public void createlist(){
-        list_category.add(new CategoryModel("Для спальни", R.drawable.ic_dashboard_black_24dp));
-        list_category.add(new CategoryModel("Для гостинной", R.drawable.ic_dashboard_black_24dp));
-        list_category.add(new CategoryModel("Кухонная мебель", R.drawable.ic_dashboard_black_24dp));
-        list_category.add(new CategoryModel("Юношеские гарнитуры", R.drawable.ic_dashboard_black_24dp));
-        list_category.add(new CategoryModel("Садовая мебель", R.drawable.ic_dashboard_black_24dp));
-        list_category.add(new CategoryModel("Мебель для прихожей", R.drawable.ic_dashboard_black_24dp));
+        list_category.add(new CategoryModel("Для спальни", R.drawable.bed));
+        list_category.add(new CategoryModel("Для гостинной", R.drawable.images));
+        list_category.add(new CategoryModel("Кухонная мебель", R.drawable.kitschen));
+        list_category.add(new CategoryModel("Садовая мебель", R.drawable.garden));
+        list_category.add(new CategoryModel("Мебель для прихожей", R.drawable.photo_00_iprihojaya));
 
     }
 

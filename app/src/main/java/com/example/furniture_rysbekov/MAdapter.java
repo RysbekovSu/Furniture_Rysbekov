@@ -18,7 +18,8 @@ import java.util.List;
 
 public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
     ItemFurnitureBinding binding;
-    ArrayList<FurnitureModel> list_zal = new ArrayList<>();
+    List<FurnitureModel> list_m = new ArrayList<>();
+    private ArrayList<FurnitureModel> selected_list = new ArrayList<>();
     NavController navController;
     @NonNull
     @Override
@@ -29,7 +30,7 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.onBind(list_zal.get(position));
+        holder.onBind(list_m.get(position));
 
     }
 
@@ -41,10 +42,10 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return list_zal.size();
+        return list_m.size();
     }
     public void  set_list(List<FurnitureModel> main_list){
-        this.list_zal = list_zal;
+        this.list_m = main_list;
     }
 
 
@@ -62,14 +63,15 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
             binding.descriptionCard.setText(furnitureModel.getDescription());
             binding.imageCard.setImageResource(furnitureModel.getImgInt());
 
-            binding.btnDone.setOnClickListener(v -> {
-                list_zal.add(furnitureModel);
+            binding.btnDone.setOnClickListener(view -> {
+                selected_list.add(furnitureModel);
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("favorite", selected_list);
+
                 navController = Navigation.findNavController((Activity)itemView.getContext(),
                             R.id.nav_host_fragment_activity_main);
 
-                Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList("favourite", list_zal);
-                navController.navigate(R.id.action_navigation_home_to_navigation_bed_room);
+                navController.navigate(R.id.descriptionFragment, bundle);
             });
         }
         }

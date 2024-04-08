@@ -33,14 +33,14 @@ public class DescriptionFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         adapter = new DescAdapter();
 
         if(getArguments()!= null){
-            d_list = getArguments().getParcelableArrayList("favourite");
+            d_list = getArguments().getParcelableArrayList("favorite");
         }else{
             Toast.makeText(requireActivity(),"the are nothing", Toast.LENGTH_LONG).show();
         }
-
 
     }
     @Override
@@ -56,7 +56,7 @@ public class DescriptionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         if(d_list!=null){
-            adapter.set_list(d_list);
+            adapter.setListD(d_list);
         }else {
             Toast.makeText(requireActivity(), "Вы не выбрали товар", Toast.LENGTH_SHORT).show();
         }

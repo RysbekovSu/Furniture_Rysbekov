@@ -9,37 +9,33 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rV_ZAL_ROOM"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_title_zal_room"
+        android:layout_marginTop="42dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_furniture"/>
-
     <TextView
-        android:id="@+id/tv_title_zal_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mebel dlya gostinoi"
+        android:text="мебель для гостинной:"
+        android:textStyle="bold"
         android:textSize="22sp"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/rV_ZAL_ROOM"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"/>
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/black"
-        android:contentDescription="back"
+        android:background="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
         tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,65 +2,69 @@ package com.example.furniture_rysbekov.ui.sale;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.furniture_rysbekov.MAdapter;
 import com.example.furniture_rysbekov.R;
+import com.example.furniture_rysbekov.databinding.FragmentSaleBinding;
+import com.example.furniture_rysbekov.models.FurnitureModel;
+import com.example.furniture_rysbekov.ui.notifications.NotificationsViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SaleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class SaleFragment extends Fragment {
+    private FragmentSaleBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    List<FurnitureModel> list_sale = new ArrayList<>();
+    MAdapter adapter;
+    NavController navController;
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public SaleFragment() {
-        // Required empty public constructor
+        binding = FragmentSaleBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+        createList();
+        adapter = new MAdapter();
+        adapter.set_list(list_sale);
+        binding.rVZALROOM.setAdapter(adapter);
+        return root;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SaleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SaleFragment newInstance(String param1, String param2) {
-        SaleFragment fragment = new SaleFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public void createList(){
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+        list_sale.add(new FurnitureModel("sale","Славянский комфорт","2000-20%","Этот диван сочетает в себе удобство и функциональность, став прекрасным местом для отдыха и развлечений в вашей гостиной. Его прочная рама и мягкие подушки обеспечивают идеальную поддержку и комфорт, а стильный дизайн в классическом советском стиле добавит атмосферу уюта и тепла в ваш дом.", R.drawable.krov));
+
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.btnBack.setOnClickListener(v->{
+            navController = Navigation.findNavController(requireActivity(),
+                    R.id.nav_host_fragment_activity_main);
+            navController.navigate(R.id.action_saleFragment_to_navigation_home);
+        });
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sale, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

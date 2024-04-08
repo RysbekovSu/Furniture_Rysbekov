@@ -19,10 +19,10 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private List<CategoryModel> main_list = new ArrayList<>();
 
-
     public void setMain_list(List<CategoryModel> main_list){
         this.main_list = main_list;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,12 +42,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemCategoryBinding binding;
-        private NavController navController;
 
         public ViewHolder(@NonNull ItemCategoryBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
-            navController = Navigation.findNavController(itemView.getRoot());
         }
 
         public void bind(CategoryModel categoryModel) {
@@ -55,6 +53,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             binding.imageCategory.setImageResource(categoryModel.getImage());
 
             itemView.setOnClickListener(v -> {
+                NavController navController = Navigation.findNavController(binding.getRoot());
                 switch (categoryModel.getTitle()) {
                     case "Для спальни":
                         navController.navigate(R.id.action_navigation_home_to_navigation_bed_room);
@@ -63,16 +62,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                         navController.navigate(R.id.action_navigation_home_to_navigation_zal);
                         break;
                     case "Кухонная мебель":
-                        // Handle kitchen furniture navigation
+                        navController.navigate(R.id.action_navigation_home_to_kitchenFragment);
                         break;
-                    case "Юношеские гарнитуры":
-                        // Handle youth furniture navigation
-                        break;
+
                     case "Садовая мебель":
                         navController.navigate(R.id.action_navigation_home_to_gardenFragment);
                         break;
                     case "Мебель для прихожей":
-                        // Handle hallway furniture navigation
+                        navController.navigate(R.id.action_navigation_home_to_prihojiyFragment);
                         break;
                     default:
                         break;
@@ -80,4 +77,5 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             });
         }
     }
+
 }

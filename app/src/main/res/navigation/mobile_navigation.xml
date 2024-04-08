@@ -25,6 +25,12 @@
         <action
             android:id="@+id/action_navigation_home_to_descriptionFragment"
             app:destination="@id/descriptionFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_prihojiyFragment"
+            app:destination="@id/prihojiyFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_kitchenFragment"
+            app:destination="@id/kitchenFragment" />
     </fragment>
 
     <fragment
@@ -57,13 +63,31 @@
         android:name="com.example.furniture_rysbekov.ui.garden.GardenFragment"
         android:label="fragment_garden"
         tools:layout="@layout/fragment_garden" />
-    <fragment
+     <fragment
         android:id="@+id/descriptionFragment"
         android:name="com.example.furniture_rysbekov.ui.description.DescriptionFragment"
         android:label="fragment_description"
         tools:layout="@layout/fragment_description" >
         <action
             android:id="@+id/action_descriptionFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/prihojiyFragment"
+        android:name="com.example.furniture_rysbekov.ui.prihojiy.PrihojiyFragment"
+        android:label="fragment_prihojiy"
+        tools:layout="@layout/fragment_prihojiy" >
+        <action
+            android:id="@+id/action_prihojiyFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/kitchenFragment"
+        android:name="com.example.furniture_rysbekov.ui.kitchen.kitchenFragment"
+        android:label="fragment_kitchen"
+        tools:layout="@layout/fragment_kitchen" >
+        <action
+            android:id="@+id/action_kitchenFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 </navigation>

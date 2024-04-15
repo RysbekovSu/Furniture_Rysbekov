@@ -56,7 +56,7 @@ public class PrihojiyFragment extends Fragment {
         binding.btnBack.setOnClickListener(v->{
             navController = Navigation.findNavController(requireActivity(),
                     R.id.nav_host_fragment_activity_main);
-            navController.navigate(R.id.action_navigation_zal_to_navigation_home);
+            navController.navigate(R.id.action_prihojiyFragment_to_navigation_home);
         });
     }
 

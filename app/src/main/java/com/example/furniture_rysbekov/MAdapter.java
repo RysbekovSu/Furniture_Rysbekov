@@ -60,6 +60,7 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
         public void onBind(FurnitureModel furnitureModel) {
             binding.titleCard.setText(furnitureModel.getTitle());
             binding.priceCard.setText(furnitureModel.getPrice());
+            binding.discount.setText(furnitureModel.getDiscount());
             binding.descriptionCard.setText(furnitureModel.getDescription());
             binding.imageCard.setImageResource(furnitureModel.getImgInt());
 

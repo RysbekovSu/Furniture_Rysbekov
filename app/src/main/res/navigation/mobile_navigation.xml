@@ -37,7 +37,11 @@
         android:id="@+id/navigation_bed_room"
         android:name="com.example.furniture_rysbekov.ui.dashboard.BedRoomFragment"
         android:label="Bed Room"
-        tools:layout="@layout/fragment_bed_room" />
+        tools:layout="@layout/fragment_bed_room" >
+        <action
+            android:id="@+id/action_navigation_bed_room_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_zal"
@@ -62,7 +66,11 @@
         android:id="@+id/gardenFragment"
         android:name="com.example.furniture_rysbekov.ui.garden.GardenFragment"
         android:label="fragment_garden"
-        tools:layout="@layout/fragment_garden" />
+        tools:layout="@layout/fragment_garden" >
+        <action
+            android:id="@+id/action_gardenFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
      <fragment
         android:id="@+id/descriptionFragment"
         android:name="com.example.furniture_rysbekov.ui.description.DescriptionFragment"

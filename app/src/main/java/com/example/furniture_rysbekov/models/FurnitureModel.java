@@ -31,7 +31,7 @@ public class FurnitureModel  implements Parcelable {
         this.image = image;
     }
 
-    public FurnitureModel(String category, String title, String price, String description, String discount, int imgInt, byte[] image) {
+    public FurnitureModel(String category, String title, String price, String description, String discount, int imgInt) {
         this.category = category;
         this.title = title;
         this.price = price;
